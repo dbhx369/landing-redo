@@ -742,7 +742,7 @@
     color:var(--text-muted,rgba(237,234,228,0.55));
   }
   .pcard-balance{
-    margin-top:8px;font-size:clamp(2.6rem,12vw,3.4rem);
+    margin-top:26px;font-size:clamp(2.6rem,12vw,3.4rem);
     font-weight:800;letter-spacing:-0.04em;line-height:1;
     color:var(--accent);
     /* layered glow blends smoothly — single large-blur text-shadow renders a hard edge on iOS Safari */
@@ -1623,7 +1623,6 @@
         <div class="pcard-price"><span class="rand">R</span><span id="pPrice">2&thinsp;495</span></div>
         <div class="pcard-pricemeta">
           <span class="pcard-was" id="pWas">R4&thinsp;158</span>
-          <span class="pcard-save" id="pSave">Save R1&thinsp;663</span>
         </div>
       </div>
       <div class="pcard-pricenote">one-time fee &middot; no activation &middot; 40% launch promo</div>
@@ -1986,7 +1985,6 @@
     var elBalance = document.getElementById('pBalance');
     var elPrice   = document.getElementById('pPrice');
     var elWas     = document.getElementById('pWas');
-    var elSave    = document.getElementById('pSave');
     var elMin     = document.getElementById('pMin');
 
     function paint(mult){
@@ -1995,7 +1993,6 @@
       elBalance.innerHTML = d.bal + '<span class="bal-thousands">' + d.th + '</span>';
       elPrice.innerHTML = d.price;
       elWas.innerHTML   = d.was;
-      elSave.innerHTML  = d.save;
       elMin.innerHTML   = d.min;
       // subtle re-pop on the balance
       elBalance.style.animation = 'none';

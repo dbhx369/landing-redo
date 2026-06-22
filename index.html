@@ -794,8 +794,8 @@
   .pcard-foot .lock{font-size:11px;margin-right:2px;}
   /* --- Avg. reward (4 trial placements; shared .pAvg value updates per size) --- */
   .avg-info{position:relative;display:inline-flex;align-items:center;vertical-align:middle;}
-  .avg-ic{display:inline-flex;width:15px;height:15px;border-radius:50%;border:1px solid currentColor;align-items:center;justify-content:center;font-size:10px;font-style:normal;line-height:1;opacity:0.55;background:none;color:inherit;cursor:pointer;padding:0;margin-left:5px;font-family:inherit;-webkit-tap-highlight-color:transparent;}
-  .avg-ic:hover{opacity:1;}
+  .avg-ic{display:inline-flex;width:15px;height:15px;border-radius:50%;border:none;background:rgba(255,255,255,0.10);color:var(--text-muted,rgba(237,234,228,0.62));align-items:center;justify-content:center;font-size:10px;font-weight:700;font-style:italic;font-family:Georgia,'Times New Roman',serif;line-height:1;cursor:pointer;padding:0;margin-left:6px;-webkit-tap-highlight-color:transparent;transition:background .15s ease,color .15s ease;}
+  .avg-ic:hover,.avg-info.open .avg-ic{background:rgba(200,245,90,0.18);color:var(--accent);}
   .avg-tip{position:absolute;bottom:calc(100% + 8px);left:0;width:210px;max-width:62vw;background:var(--elevated,#1e201a);border:1px solid var(--border-strong);border-radius:10px;padding:9px 11px;font-size:11px;line-height:1.45;font-weight:500;font-family:var(--font);letter-spacing:0;text-transform:none;color:var(--text-2);text-align:left;box-shadow:0 12px 30px rgba(0,0,0,0.55);opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .14s ease, transform .14s ease, visibility .14s;z-index:30;}
   .avg-info.open .avg-tip{opacity:1;visibility:visible;transform:translateY(0);}
   /* C: callout under price */

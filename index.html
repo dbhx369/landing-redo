@@ -1607,18 +1607,14 @@
       <!-- multiplier toggle -->
       <div class="pswitch" role="tablist" aria-label="Choose account size">
         <span class="pswitch-glide" aria-hidden="true"></span>
-        <button class="pseg" role="tab" aria-selected="false" data-mult="0.5">&frac12;&times;</button>
-        <button class="pseg is-active" role="tab" aria-selected="true" data-mult="1">1&times;</button>
-        <button class="pseg" role="tab" aria-selected="false" data-mult="2">2&times;</button>
-        <button class="pseg" role="tab" aria-selected="false" data-mult="3">3&times;</button>
+        <button class="pseg" role="tab" aria-selected="false" data-mult="0.5">R250K</button>
+        <button class="pseg is-active" role="tab" aria-selected="true" data-mult="1">R500K</button>
+        <button class="pseg" role="tab" aria-selected="false" data-mult="2">R1M</button>
+        <button class="pseg" role="tab" aria-selected="false" data-mult="3">R1.5M</button>
       </div>
 
-      <div class="pcard-tagline" id="pTagline">One R500k account &middot; traded as one</div>
-
       <!-- balance -->
-      <div class="pcard-label">Funded account</div>
       <div class="pcard-balance" id="pBalance">R500<span class="bal-thousands">,000</span></div>
-      <div class="pcard-sub">Pay once. Trade the challenge. No subscriptions.</div>
 
       <div class="pcard-rule" aria-hidden="true"></div>
 
@@ -1988,7 +1984,6 @@
     };
 
     var elBalance = document.getElementById('pBalance');
-    var elTag     = document.getElementById('pTagline');
     var elPrice   = document.getElementById('pPrice');
     var elWas     = document.getElementById('pWas');
     var elSave    = document.getElementById('pSave');
@@ -1998,7 +1993,6 @@
       var d = DATA[mult];
       if(!d) return;
       elBalance.innerHTML = d.bal + '<span class="bal-thousands">' + d.th + '</span>';
-      elTag.innerHTML   = d.tag;
       elPrice.innerHTML = d.price;
       elWas.innerHTML   = d.was;
       elSave.innerHTML  = d.save;

@@ -768,10 +768,6 @@
     border:1px solid var(--border);
     border-radius:14px;padding:16px 16px 6px;
   }
-  .pstruct-head{
-    font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;
-    text-transform:uppercase;color:var(--accent);margin-bottom:6px;
-  }
   .prow{
     display:flex;align-items:center;justify-content:space-between;
     padding:11px 0;border-bottom:1px dashed var(--border);
@@ -1478,17 +1474,18 @@
         <span class="pcard-was" id="pWas">R4&thinsp;158</span>
         <div class="pcard-price"><span class="rand">R</span><span id="pPrice">2&thinsp;495</span></div>
       </div>
-      <div class="pcard-pricenote">one-time fee &middot; no activation &middot; 40% launch promo</div>
+      <div class="pcard-pricenote">one-time refundable fee &middot; no activation &middot; 40% launch promo</div>
 
       <!-- payout structure -->
       <div class="pstruct">
-        <div class="pstruct-head">Payout structure</div>
-        <div class="prow"><span class="prow-k">Min. payout</span><span class="prow-v" id="pMin">3% &middot; R15k</span></div>
-        <div class="prow"><span class="prow-k">Max payout</span><span class="prow-v accent">None &mdash; ever</span></div>
-        <div class="prow"><span class="prow-k">Your cut</span><span class="prow-v accent">80% of all profit</span></div>
-        <div class="prow"><span class="prow-k">Account fee</span><span class="prow-v accent">Refunded when you pass</span></div>
-        <div class="prow"><span class="prow-k">Payout speed</span><span class="prow-v accent">Same day &middot; under 24h</span></div>
-        <div class="prow"><span class="prow-k">Drawdown</span><span class="prow-v">No trailing &middot; no hidden rules</span></div>
+        <div class="prow"><span class="prow-k">Profit target</span><span class="prow-v accent">10%</span></div>
+        <div class="prow"><span class="prow-k">Max daily loss</span><span class="prow-v">5%</span></div>
+        <div class="prow"><span class="prow-k">Max loss</span><span class="prow-v">10%</span></div>
+        <div class="prow"><span class="prow-k">Min trading days</span><span class="prow-v">4</span></div>
+        <div class="prow"><span class="prow-k">Trading period</span><span class="prow-v accent">Unlimited</span></div>
+        <div class="prow"><span class="prow-k">Refund</span><span class="prow-v accent">100%</span></div>
+        <div class="prow"><span class="prow-k">Rewards</span><span class="prow-v accent">80%</span></div>
+        <div class="prow"><span class="prow-k">Drawdown type</span><span class="prow-v accent">Static</span></div>
       </div>
 
       <a href="/signup.html" class="pcard-cta" id="pCta">Get funded now &rarr;</a>
@@ -1838,7 +1835,6 @@
     var elBalance = document.getElementById('pBalance');
     var elPrice   = document.getElementById('pPrice');
     var elWas     = document.getElementById('pWas');
-    var elMin     = document.getElementById('pMin');
 
     function paint(mult){
       var d = DATA[mult];
@@ -1846,7 +1842,6 @@
       elBalance.innerHTML = d.bal + '<span class="bal-thousands">' + d.th + '</span>';
       elPrice.innerHTML = d.price;
       elWas.innerHTML   = d.was;
-      elMin.innerHTML   = d.min;
       // subtle re-pop on the balance
       elBalance.style.animation = 'none';
       void elBalance.offsetWidth;

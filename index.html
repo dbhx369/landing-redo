@@ -757,7 +757,7 @@
     text-decoration:line-through;text-decoration-color:rgba(237,234,228,0.4);
   }
   .pcard-pricenote{
-    margin-top:10px;font-family:var(--mono);font-size:10.5px;
+    margin-top:10px;text-align:left;font-family:var(--mono);font-size:10.5px;
     letter-spacing:0.03em;color:var(--text-muted,rgba(237,234,228,0.55));
   }
 
@@ -800,10 +800,6 @@
   /* D: above the CTA */
   .pcard-avgcta{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:var(--text-2);}
   .pcard-avgcta .pAvg{color:var(--accent);font-weight:800;}
-  /* A: badge strip below the card */
-  .pcard-avgbadge{max-width:380px;margin:12px auto 0;border:1px solid var(--border);border-radius:14px;background:var(--card);padding:14px 18px;display:flex;flex-direction:column;align-items:center;gap:2px;}
-  .pcard-avgbadge .pAvg{font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--accent);}
-  .pcard-avgbadge .lbl{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-2);}
 
   .pricing-foot{
     margin-top:34px;max-width:520px;
@@ -1483,8 +1479,8 @@
 
       <!-- price -->
       <div class="pcard-pricerow">
-        <span class="pcard-was" id="pWas">R4&thinsp;158</span>
         <div class="pcard-price"><span class="rand">R</span><span id="pPrice">2&thinsp;495</span></div>
+        <span class="pcard-was" id="pWas">R4&thinsp;158</span>
       </div>
       <div class="pcard-pricenote">one-time refundable fee &middot; no activation fee</div>
       <div class="pcard-avgline">Avg. reward <span class="pAvg">R26,700</span> <i class="avg-ic" aria-hidden="true">i</i></div>
@@ -1505,11 +1501,6 @@
       <div class="pcard-avgcta">Avg. reward <span class="pAvg">R26,700</span> <i class="avg-ic" aria-hidden="true">i</i></div>
       <a href="/signup.html" class="pcard-cta" id="pCta">Get funded now &rarr;</a>
       <div class="pcard-foot"><span class="lock" aria-hidden="true">&#128274;</span> Secure EFT &middot; instant access</div>
-    </div>
-
-    <div class="pcard-avgbadge">
-      <span class="pAvg">R26,700</span>
-      <span class="lbl">Avg. reward <i class="avg-ic" aria-hidden="true">i</i></span>
     </div>
 
     <p class="pricing-foot io">All sizes share the same rules and the same payout terms. The only thing that changes is how much you trade at once.</p>

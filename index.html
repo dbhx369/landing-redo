@@ -797,6 +797,9 @@
   /* C: callout under price */
   .pcard-avgline{margin-top:9px;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-2);}
   .pcard-avgline .pAvg{color:var(--accent);font-weight:700;}
+  /* saving line above the CTA */
+  .pcard-savecta{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:var(--text-2);}
+  .pcard-savecta .pSaving{color:var(--accent);font-weight:800;}
 
   .pricing-foot{
     margin-top:34px;max-width:520px;
@@ -1477,7 +1480,7 @@
       <!-- price -->
       <div class="pcard-pricerow">
         <div class="pcard-price"><span class="rand">R</span><span id="pPrice">2&thinsp;495</span></div>
-        <span class="pcard-was" id="pWas">R4&thinsp;158</span>
+        <span class="pcard-was" id="pWas">R3&thinsp;700</span>
       </div>
       <div class="pcard-pricenote">one-time refundable fee &middot; no activation fee</div>
       <div class="pcard-avgline">Avg. reward <span class="pAvg">R26,700</span> <i class="avg-ic" aria-hidden="true">i</i></div>
@@ -1487,8 +1490,10 @@
         <div class="prow"><span class="prow-k">Trading period</span><span class="prow-v accent">Unlimited</span></div>
         <div class="prow"><span class="prow-k">Refund</span><span class="prow-v accent">100%</span></div>
         <div class="prow"><span class="prow-k">Rewards</span><span class="prow-v accent">80%</span></div>
+        <div class="prow"><span class="prow-k">Max payout</span><span class="prow-v accent">None &mdash; ever</span></div>
       </div>
 
+      <div class="pcard-savecta">Saving <span class="pSaving">R1,205</span></div>
       <a href="/signup.html" class="pcard-cta" id="pCta">Get funded now &rarr;</a>
       <div class="pcard-foot"><span class="lock" aria-hidden="true">&#128274;</span> Secure EFT &middot; instant access</div>
     </div>
@@ -1821,13 +1826,13 @@
     var DATA = {
       '0.5':{ bal:'R250', th:',000', tag:'One R250k account &middot; traded as one',
             price:'1&thinsp;325', was:'R2&thinsp;208', save:'Save R883',
-            min:'3% &middot; R7.5k', avg:'R13,300', cta:'Get funded now &rarr;' },
+            min:'3% &middot; R7.5k', avg:'R13,300', saving:'R883', cta:'Get funded now &rarr;' },
       '1':{ bal:'R500', th:',000', tag:'One R500k account &middot; traded as one',
-            price:'2&thinsp;495', was:'R4&thinsp;158', save:'Save R1&thinsp;663',
-            min:'3% &middot; R15k', avg:'R26,700', cta:'Get funded now &rarr;' },
+            price:'2&thinsp;495', was:'R3&thinsp;700', save:'Save R1&thinsp;205',
+            min:'3% &middot; R15k', avg:'R26,700', saving:'R1,205', cta:'Get funded now &rarr;' },
       '2':{ bal:'R1', th:',000,000', tag:'2 &times; R500k accounts &middot; traded as one',
             price:'4&thinsp;895', was:'R6&thinsp;800', save:'Save R2&thinsp;597',
-            min:'3% &middot; R30k', avg:'R53,300', cta:'Get funded now &rarr;' },
+            min:'3% &middot; R30k', avg:'R53,300', saving:'R1,905', cta:'Get funded now &rarr;' },
       '3':{ bal:'R1.5', th:' million', tag:'3 &times; R500k accounts &middot; traded as one',
             price:'8&thinsp;495', was:'R10&thinsp;825', save:'Save R2&thinsp;330',
             min:'3% &middot; R45k', cta:'Get funded now &rarr;' }
@@ -1844,6 +1849,7 @@
       elPrice.innerHTML = d.price;
       elWas.innerHTML   = d.was;
       if(d.avg){ Array.prototype.forEach.call(document.querySelectorAll('.pAvg'), function(e){ e.textContent = d.avg; }); }
+      if(d.saving){ Array.prototype.forEach.call(document.querySelectorAll('.pSaving'), function(e){ e.textContent = d.saving; }); }
       // subtle re-pop on the balance
       elBalance.style.animation = 'none';
       void elBalance.offsetWidth;

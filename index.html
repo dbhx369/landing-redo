@@ -746,13 +746,12 @@
   }
 
   .pcard-pricerow{
-    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+    display:flex;align-items:baseline;justify-content:flex-start;gap:12px;flex-wrap:wrap;
   }
   .pcard-price{
     font-size:40px;font-weight:800;letter-spacing:-0.03em;line-height:1;color:var(--text);
   }
   .pcard-price .rand{font-size:22px;font-weight:700;opacity:0.7;margin-right:1px;}
-  .pcard-pricemeta{display:flex;flex-direction:column;align-items:flex-start;gap:5px;}
   .pcard-was{
     font-size:15px;font-weight:600;color:var(--text-muted,rgba(237,234,228,0.55));
     text-decoration:line-through;text-decoration-color:rgba(237,234,228,0.4);
@@ -809,10 +808,6 @@
   /* slider */
 
 
-  /* risk colors applied to .calc-pct + .calc-rrisk via modifier */
-  .risk-low .calc-pct,  .calc-row.risk-low  .calc-pct{color:var(--accent);}
-  .risk-mid .calc-pct,  .calc-row.risk-mid  .calc-pct{color:var(--warn);}
-  .risk-high .calc-pct, .calc-row.risk-high .calc-pct{color:var(--neg);}
 
 
   /* ============ WATCH / VSL ============ */
@@ -1480,10 +1475,8 @@
 
       <!-- price -->
       <div class="pcard-pricerow">
+        <span class="pcard-was" id="pWas">R4&thinsp;158</span>
         <div class="pcard-price"><span class="rand">R</span><span id="pPrice">2&thinsp;495</span></div>
-        <div class="pcard-pricemeta">
-          <span class="pcard-was" id="pWas">R4&thinsp;158</span>
-        </div>
       </div>
       <div class="pcard-pricenote">one-time fee &middot; no activation &middot; 40% launch promo</div>
 

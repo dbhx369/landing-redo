@@ -709,14 +709,14 @@
   /* multiplier toggle */
   .pswitch{
     position:relative;
-    display:grid;grid-template-columns:repeat(4,1fr);
+    display:grid;grid-template-columns:repeat(3,1fr);
     gap:0;padding:5px;border-radius:13px;
     background:rgba(0,0,0,0.35);
     border:1px solid var(--border);
   }
   .pswitch-glide{
     position:absolute;top:5px;left:5px;
-    width:calc((100% - 10px)/4);height:calc(100% - 10px);
+    width:calc((100% - 10px)/3);height:calc(100% - 10px);
     border-radius:9px;background:var(--accent);
     box-shadow:0 4px 16px rgba(200,245,90,0.3);
     transition:transform .32s cubic-bezier(.4,1.2,.5,1);
@@ -1610,7 +1610,6 @@
         <button class="pseg" role="tab" aria-selected="false" data-mult="0.5">R250K</button>
         <button class="pseg is-active" role="tab" aria-selected="true" data-mult="1">R500K</button>
         <button class="pseg" role="tab" aria-selected="false" data-mult="2">R1M</button>
-        <button class="pseg" role="tab" aria-selected="false" data-mult="3">R1.5M</button>
       </div>
 
       <!-- balance -->

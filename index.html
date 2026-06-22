@@ -773,7 +773,7 @@
     padding:11px 0;border-bottom:1px dashed var(--border);
   }
   .prow:last-child{border-bottom:none;}
-  .prow-k{font-size:13.5px;color:var(--text-muted,rgba(237,234,228,0.55));}
+  .prow-k{font-size:13.5px;color:var(--text);display:inline-flex;align-items:center;}
   .prow-v{font-size:13.5px;font-weight:700;color:var(--text);text-align:right;}
   .prow-v.accent{color:var(--accent);}
 
@@ -793,7 +793,11 @@
   }
   .pcard-foot .lock{font-size:11px;margin-right:2px;}
   /* --- Avg. reward (4 trial placements; shared .pAvg value updates per size) --- */
-  .avg-ic{display:inline-flex;width:13px;height:13px;border-radius:50%;border:1px solid currentColor;align-items:center;justify-content:center;font-size:9px;font-style:normal;opacity:0.6;line-height:1;}
+  .avg-info{position:relative;display:inline-flex;align-items:center;vertical-align:middle;}
+  .avg-ic{display:inline-flex;width:15px;height:15px;border-radius:50%;border:1px solid currentColor;align-items:center;justify-content:center;font-size:10px;font-style:normal;line-height:1;opacity:0.55;background:none;color:inherit;cursor:pointer;padding:0;margin-left:5px;font-family:inherit;-webkit-tap-highlight-color:transparent;}
+  .avg-ic:hover{opacity:1;}
+  .avg-tip{position:absolute;bottom:calc(100% + 8px);left:0;width:210px;max-width:62vw;background:var(--elevated,#1e201a);border:1px solid var(--border-strong);border-radius:10px;padding:9px 11px;font-size:11px;line-height:1.45;font-weight:500;font-family:var(--font);letter-spacing:0;text-transform:none;color:var(--text-2);text-align:left;box-shadow:0 12px 30px rgba(0,0,0,0.55);opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .14s ease, transform .14s ease, visibility .14s;z-index:30;}
+  .avg-info.open .avg-tip{opacity:1;visibility:visible;transform:translateY(0);}
   /* C: callout under price */
   .pcard-avgline{margin-top:9px;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-2);}
   .pcard-avgline .pAvg{color:var(--accent);font-weight:700;}
@@ -1483,14 +1487,14 @@
         <span class="pcard-was" id="pWas">R3&thinsp;700</span>
       </div>
       <div class="pcard-pricenote">one-time refundable fee &middot; no activation fee</div>
-      <div class="pcard-avgline">Avg. reward <span class="pAvg">R26,700</span> <i class="avg-ic" aria-hidden="true">i</i></div>
+      <div class="pcard-avgline">Avg. reward <span class="pAvg">R26,700</span><span class="avg-info"><button type="button" class="avg-ic" aria-label="How is the average reward calculated?" aria-expanded="false">i</button><span class="avg-tip" role="tooltip">Estimated average payout for a funded trader at this account size &mdash; based on a typical ~6% account return and the 80% profit split. Illustrative, not a guarantee.</span></span></div>
 
       <!-- payout structure -->
       <div class="pstruct">
-        <div class="prow"><span class="prow-k">Trading period</span><span class="prow-v accent">Unlimited</span></div>
-        <div class="prow"><span class="prow-k">Refund</span><span class="prow-v accent">100%</span></div>
-        <div class="prow"><span class="prow-k">Rewards</span><span class="prow-v accent">80%</span></div>
-        <div class="prow"><span class="prow-k">Max payout</span><span class="prow-v accent">None &mdash; ever</span></div>
+        <div class="prow"><span class="prow-k">Trading period</span><span class="prow-v">Unlimited</span></div>
+        <div class="prow"><span class="prow-k">Refund <span class="avg-info"><button type="button" class="avg-ic" aria-label="About the refund" aria-expanded="false">i</button><span class="avg-tip">Your one-time fee is refunded in full once you pass the challenge and reach your first payout.</span></span></span><span class="prow-v">100%</span></div>
+        <div class="prow"><span class="prow-k">Rewards <span class="avg-info"><button type="button" class="avg-ic" aria-label="About rewards" aria-expanded="false">i</button><span class="avg-tip">You keep 80% of every rand of profit you make on the funded account.</span></span></span><span class="prow-v">80%</span></div>
+        <div class="prow"><span class="prow-k">Max payout</span><span class="prow-v">None &mdash; ever</span></div>
       </div>
 
       <div class="pcard-savecta">Saving <span class="pSaving">R1,205</span></div>
@@ -1871,6 +1875,24 @@
     });
     // init on 1x (R500k standard) — now index 1 since the ½× tier is first
     select(1);
+  })();
+
+  /* tap-to-toggle info tooltips (avg reward + rule rows) */
+  (function(){
+    var infos = Array.prototype.slice.call(document.querySelectorAll('.avg-info'));
+    if(!infos.length) return;
+    function closeAll(){ infos.forEach(function(o){ o.classList.remove('open'); var b=o.querySelector('.avg-ic'); if(b) b.setAttribute('aria-expanded','false'); }); }
+    infos.forEach(function(info){
+      var btn = info.querySelector('.avg-ic');
+      if(!btn) return;
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var willOpen = !info.classList.contains('open');
+        closeAll();
+        if(willOpen){ info.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+      });
+    });
+    document.addEventListener('click', closeAll);
   })();
 
 

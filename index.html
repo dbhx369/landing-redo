@@ -82,7 +82,7 @@
     content:"";
     position:absolute;
     inset:0;
-    background:radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(0,0,0,0.45) 100%);
+    background:radial-gradient(120% 80% at 50% 0%, transparent 65%, rgba(0,0,0,0.18) 100%);
     pointer-events:none;
     z-index:0;
   }
@@ -1370,7 +1370,7 @@
 
   <!-- social proof / trusted by -->
   <style>
-    .proof{ padding:46px 22px 8px; text-align:center; }
+    .proof{ padding:46px 22px 44px; text-align:center; background:linear-gradient(180deg, var(--bg) 0%, var(--bg) 52%, var(--outer) 100%); }
     .proof-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:26px auto 0; max-width:560px; }
     .proof-stat{ display:flex; flex-direction:column; align-items:center; gap:7px; padding:22px 14px; border-radius:16px; background:var(--card); border:1px solid var(--border); }
     .proof-num{ font-size:clamp(1.6rem,7vw,2.15rem); font-weight:800; letter-spacing:-0.03em; color:var(--accent); line-height:1; text-shadow:0 0 22px rgba(200,245,90,0.25); }
@@ -1386,18 +1386,6 @@
       <div class="proof-stat"><span class="proof-num">24h</span><span class="proof-label">Avg. payout time</span></div>
       <div class="proof-stat"><span class="proof-num">4.9★</span><span class="proof-label">Trader rating</span></div>
     </div>
-  </section>
-
-  <!-- predict the price promo card (image) — moved under Trusted by traders -->
-  <style>
-    .pp-card-section{ padding:4px 22px 46px; }
-    .pp-card-link{ display:block; width:100%; max-width:620px; margin:0 auto; line-height:0; }
-    .pp-card-link img{ display:block; width:100%; height:auto; }
-  </style>
-  <section class="pp-card-section">
-    <a href="/challenge.html" class="pp-card-link reveal" aria-label="Predict the Price challenge — enter now">
-      <img src="predict-card.png" alt="Predict The Price and Win — weekly price prediction challenges. Win a R500k challenge or up to R25,000. Enter now." />
-    </a>
   </section>
 
   <!-- watch / vsl -->

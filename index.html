@@ -1372,11 +1372,18 @@
   <style>
     .proof{ padding:46px 22px 44px; text-align:center; background:linear-gradient(180deg, var(--bg) 0%, var(--bg) 52%, var(--outer) 100%); }
     .proof-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin:26px auto 0; max-width:560px; }
-    .proof-stat{ display:flex; flex-direction:column; align-items:center; gap:7px; padding:22px 14px; border-radius:16px; background:var(--card); border:1px solid var(--border); }
-    .proof-num{ font-size:clamp(1.6rem,7vw,2.15rem); font-weight:800; letter-spacing:-0.03em; color:var(--accent); line-height:1; text-shadow:0 0 22px rgba(200,245,90,0.25); }
-    .proof-label{ font-size:12px; font-weight:500; color:var(--text-2); }
+    .proof-stat{ position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; gap:7px; padding:22px 14px; border-radius:16px; background:var(--card); border:1px solid var(--border); }
+    .proof-num{ position:relative; z-index:1; font-size:clamp(1.6rem,7vw,2.15rem); font-weight:800; letter-spacing:-0.03em; color:var(--accent); line-height:1; text-shadow:0 0 22px rgba(200,245,90,0.25); }
+    .proof-label{ position:relative; z-index:1; font-size:12px; font-weight:500; color:var(--text-2); }
     .proof-sub{ margin:14px auto 0; max-width:440px; font-size:15px; line-height:1.55; color:var(--text-2); }
     @media(min-width:680px){ .proof-grid{ grid-template-columns:repeat(4,1fr); } }
+    /* single diagonal shimmer sweeping across the 4 tiles (top-left of #1 to bottom-right of #4) */
+    .proof-stat::after{ content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:linear-gradient(135deg, transparent 44%, rgba(255,255,255,0.13) 50%, rgba(200,245,90,0.10) 53%, transparent 60%); transform:translate3d(-160%,-160%,0); pointer-events:none; z-index:0; animation:proofSheen 5s ease-in-out infinite; }
+    .proof-stat:nth-child(2)::after{ animation-delay:.16s; }
+    .proof-stat:nth-child(3)::after{ animation-delay:.32s; }
+    .proof-stat:nth-child(4)::after{ animation-delay:.48s; }
+    @keyframes proofSheen{ 0%{ transform:translate3d(-160%,-160%,0); } 16%{ transform:translate3d(160%,160%,0); } 100%{ transform:translate3d(160%,160%,0); } }
+    @media (prefers-reduced-motion: reduce){ .proof-stat::after{ animation:none; } }
   </style>
   <section class="proof" id="proof">
     <span class="eyebrow eyebrow-accent io">Trusted by traders</span>
